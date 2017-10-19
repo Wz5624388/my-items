@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <ul id="oUl1">
+        <div>asdsadas</div>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li id="li6">6</li>
+        <li>
+            <p>1-1</p>
+            <p  class="last_li">1-2</p>
+        </li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li  id="last_li"></li>
+            </ul>
+        </li>
+        <li>9</li>
+        <li class="last_li">0</li>
+    </ul>
+</body>
+<script>
+    //筛选
+    $(function() {
+        //eq(index || -index) //通过下标过滤出具体某一个元素
+        //$('#oUl1>li').eq(-2).css('background','blue');
+
+        /*$('#oUl1>li').first().css('background','blue');  //第一个
+        $('#oUl1>li').last().css('background','blue');  //最后一个*/
+
+        //hasClass()检测元素时候有某个类名，返回布尔值
+        //console.log($('#oUl1>li').last().hasClass('last_li'))  
+
+        //filter()过滤
+        //$('#oUl1>li').filter('.last_li').css('background','blue');
+
+        /* $('#oUl1>li').filter(function(){
+             return $('p',this).size() == 2;
+         }).css('color','red');*/
+
+        //not()非
+        //$('#oUl1>li').not('.last_li').css('background','blue');
+        /*$('#oUl1>li').not(function(){
+            return $('p',this).size() == 2;
+        }).css('color','red');*/
+
+        //slice(start,[end]) //截取
+        //$('#oUl1>li').slice(2).css('background','blue');
+
+
+
+        //查找
+        //$('#oUl1').children('.last_li').css('background', 'blue'); //选中子元素
+        //$('#oUl1').find('.last_li').css('background', 'blue');  //从所有后代元素中去查找
+        
+        //$('#li6').next('.last_li').css('background', 'blue');
+        //$('#li6').nextAll('.last_li').css('background', 'blue')
+        //$('#li6').nextUntil('.last_li').css('background', 'blue');
+        
+        //$('#last_li').parent().css('background', 'blue'); //选择父元素
+        
+        //$('#last_li').parents('body').css('background', 'blue'); //选择所有祖先元素中符合条件的
+        //$('#last_li').parentsUntil('body').css('background', 'blue'); //选择所有祖先元素，直到符合条件的那个元素为止
+        
+        //$('#li6').siblings('.last_li').css('background', 'blue'); //选择所有符合条件的兄弟元素
+        
+        //end()返回到上次筛选的位置
+        $("#oUl1").children('li').eq(7).css('background', 'blue').find('#last_li').css('background', 'pink').end().next().css('background', 'red');
+    })
+
+</script>
+
+</html>

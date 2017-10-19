@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <!--<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
+</head>
+
+<body>
+    <div id="box"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ol>
+</body>
+<script>
+    $(document).ready(function() {
+        //$===jQuery
+
+        /*******$() 核心函数的常用方法*******/
+        //console.log($); //返回值是一个函数
+        //一、jQuery函数作为选择器使用时，可传两个参数，第一个参数表示要选中的元素，第二个参数表示范围，（默认值:document）
+        //$('li','ul').css('background','red');
+        //二、将原生DOM元素转化为JQ的DOM对象
+        var box = document.getElementById('box');
+        var $box = $('#box');
+        console.log(box);
+        console.log($box);
+
+        //$box.html('东时教育');
+        //$box.innerHTML = '东时教育';  //无法使用
+
+        //box.html('东时教育'); //error
+        //$(box).html('东时教育');  //原生DOM对象转化为JQ的DOM对象
+
+
+
+        //$(document).ready(callback)相当于原生js的 window.onload
+        //window.onload:指页面加载完成之后，一个HTML页面中只能出现一次
+        //$(document).ready(callback)：文档加载完成后，可重复使用
+        
+        //三、$(callback)是$(document).ready(callback)的简写;
+        /*$(function(){
+            console.log(1);
+        })*/
+    })
+
+</script>
+
+</html>

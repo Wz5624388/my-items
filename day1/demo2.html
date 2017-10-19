@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jq对象访问</title>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <style>
+        li {
+            width: 400px;
+        }
+        
+        .li1 {
+            color: red;
+        }
+        
+        .lis {
+            background: blue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>0</li>
+    </ul>
+    <ul id="oUl1">
+        <div>asdasd</div>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li id="li1" class="lis" style="width: 100px;"><span>5</span></li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li><input type="text" name="" id="username" value="asdfsdf"></li>
+        <li><input type="checkbox" name="" id="sex"></li>
+    </ul>
+</body>
+<script>
+    $(function() {
+        //枚举元素集合  第二个参数代表每个原生DOM对象
+        // $('#oUl1>li').each(function(index,item){
+        //     //console.log(index);
+        //     $(item).css('color','red');
+        // })
+        // $('#oUl1>li').css('color','red');
+
+        //size()
+        //console.log($('#oUl1>li').size());
+        /*var arr = [1,2,3,4,5];
+        console.log(arr.size());   //error*/
+
+        //selector
+        //console.log($('#oUl1>li').selector)
+
+        //get(index) 获取jq元素集合中某个元素（原生DOM）
+        //console.log($('#oUl1').get(0));
+
+        //index()
+        //不传选择器时：表示当前元素在其兄弟元素中所处的位置（下标）
+        //传选择器时：表示当前元素在该选择器选中的元素集合中的位置(下标)
+        //console.log($('#li1').index('#oUl1 li'));
+
+        //data('name','value');
+        // $('#li1').data('username', 'itdongshi');
+        // $('#li1').data('username1', 'itdongshi1');
+        // $('#li1').data('username2', 'itdongshi2');
+        // //不传任何参数时表示获取存储在元素上的所有数据
+        //var $d = $('#li1').data();
+        //console.log($d);
+        /*var $d1 = $('#li1').data('username');
+        console.log($d1);*/
+
+        //removeData()移除存储在元素上的数据：不传参数是全部删除，传参数表示删除对应的某一条数据
+        /*$('#li1').removeData('username');
+        var $d2 = $('#li1').data();
+        console.log($d2);*/
+
+
+        /***属性***/
+        //attr()  设置，获取元素的行内属性
+        // $('#li1').attr('name','yy').css('background','red'); //setAttribute()
+        //console.log($('#li1').attr('name')) //getAttribute()
+        //removeAttr():移除通过attr()方式添加的属性
+        // $('#li1').removeAttr('name').css('color','red');
+
+        //prop()  设置，获取元素的内置属性 （例如表单控件的checked属性）
+        /*var $flag = false;
+        $(document).click(function(){
+            if(!$flag){
+                $("#sex").prop('checked',true);
+                $flag = true;
+            }else{
+                $("#sex").prop('checked',false);
+                $flag = false;
+            }
+            
+        })*/
+        //console.log($("#sex").prop('checked'));
+
+        //removeProp() 移除通过prop()设置的内置属性
+        /*$("#sex").prop('checked',true);
+        $("#sex").removeProp('checked');
+        console.log($("#sex").prop('checked'));*/
+
+        //addClass(),removeClass(),toggleClass()
+        /* $('#li1').addClass('li1 lis'); //添加类名
+         $('#li1').removeClass('li1');  //移除类名*/
+        /*$(document).click(function(){
+            $('#li1').toggleClass('lis');  //切换类名
+        })*/
+        
+        /*$('#oUl1>li').addClass('li1').addClass(function(){
+            return 'item_' + $(this).index('#oUl1>li');
+        })*/
+       /* $('#oUl1>li').attr('name',function(){
+            return 'item_' + $(this).index('#oUl1>li');
+        })*/
+        
+        //html(),text(),val()
+        
+        //$('#li1').html('东时教育').css('color','pink'); //设置标签的文档内容
+        //console.log($('#li1').html())   //获取标签的文档内容
+        //$('#li1').html('<strong>东时教育</strong>');  //浏览器会将标签解析
+        
+        //$('#li1').text('东时教育');
+        //$('#li1').text('<strong>东时教育</strong>');  //浏览器不会将标签解析
+        //console.log( $('#li1').text())  //只会获取文本内容，忽略元素
+        
+        //针对表单元素的value属性
+        //$('#username').val('123213');//设置
+        //console.log($('#username').val()) //获取
+        
+        //css(),设置元素的行内样式  ， 获取元素的表现样式
+        //console.log($('#li1').css('height'));
+    })
+
+</script>
+
+</html>
